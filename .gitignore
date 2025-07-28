@@ -1,0 +1,22 @@
+node_modules/
+client/node_modules/
+
+# Ignore environment files
+.env
+client/.env
+
+# Ignore build output
+client/build/
+client/dist/
+
+# Ignore logs
+*.log
+client/*.log
+
+# Ignore temporary files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE files
+.vscode/
+.idea/
