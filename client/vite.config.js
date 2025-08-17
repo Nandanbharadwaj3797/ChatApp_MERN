@@ -6,5 +6,27 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss()],
+    tailwindcss()
+  ],
+  build: {
+    // Enable minification and tree shaking
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          socket: ['socket.io-client']
+        }
+      }
+    }
+  },
+  server: {
+    // Optimize development server
+    hmr: {
+      overlay: false
+    }
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom', 'socket.io-client']
+  }
 })
